@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Edit</h1>
+<body id="page-top">
+
+
+    
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+ 
+<hr>
+<form action="{% url 'update' edit_post.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        제목: <input type="text" name="title" value="{{edit_post.title}}">
+    </div>
+    <div>
+        작성자: <input type="text" name="writer" value="{{edit_post.writer}}">
+    </div>
+    <div>
+         본문: <textarea name="body" cols="40" rows="10">{{edit_post.body}}</textarea>
+    </div>
+    <div>
+        기분: <textarea name="feelings" cols="20" rows="10">{{edit_post.feelings}}</textarea>
+   </div>
+    <div>
+        업로드 : <input name="image" type="file">
+    </div>
+    <button type="submit">수정</button>
+</form>
+{% endblock %}

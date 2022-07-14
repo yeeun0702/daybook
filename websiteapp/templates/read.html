@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Read</h1>
+<hr>
+    <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+
+
+<body id="page-top">
+   
+    <body>
+    {% for posts in posts.all %}
+        <a href="{% url 'details' posts.id %}">
+            <button type="submit" class="font-weight-bold bg-primary text-white rounded">  <h3>{{ posts.title }}</h3> </button> 
+        </a>
+        <p></p>
+        <i><p>{{ posts.pub_date }}</p></i>
+        <b><p>{{ posts.writer }}</p></b>
+    </body>
+    {% endfor %}
+{% endblock %}

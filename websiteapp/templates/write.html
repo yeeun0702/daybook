@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Write</h1>
+<hr>
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+
+
+<body id="page-top">
+   
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    <div>
+        제목: <input type="text" name="title">
+    </div>
+    <div>
+        작성자: <input type="text" name="writer">
+    </div>
+    <div>
+         본문: <textarea name="body" cols="40" rows="10"></textarea>
+    </div>
+    <div>
+        기분: <textarea name="feelings" cols="40" rows="10"></textarea>
+   </div>
+
+    <button type="submit">작성</button>
+    <div>
+        업로드 : <input name="image" type="file">
+    </div>
+</form>
+{% endblock %}
+
+</header>

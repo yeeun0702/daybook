@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Detail</h1>
+<hr>
+
+
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+
+<body id="page-top">
+  
+   
+    <body>
+        <h3>제목 : {{ post.title }}</h3>
+        <i><p>날짜 : {{ post.pub_date }}</p></i>
+        <b><p>작성자 : {{ post.writer }}</p></b>
+        <p>내용 : {{ post.body }}</p>
+        <p>오늘의 기분 : {{ post.feelings }}</p>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" width="250" height="250" alt="image">
+        {% endif%}
+        <br>
+       
+        <a href="{% url 'edit' post.id %}" ><button type="submit" class="font-weight-bold bg-primary text-white rounded">수정하기</button> </a>
+        <p></p>
+        <a href="{% url 'delete' post.id %}"><button type="submit" class="font-weight-bold bg-primary text-white rounded">삭제하기</button> </a> 
+        
+    </body>
+{% endblock %}
